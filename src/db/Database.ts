@@ -1,25 +1,42 @@
 import type Client from "../model/Client";
+import type Employee from "../model/Employee";
+import type Ticket from "../model/Ticket";
 import type Transport from "../model/Transport";
 import type Sale from "../service/Sale";
 
 export default class Database {
   private transportDB: Transport[] = [];
   private clientDB: Client[] = [];
+  private employeeDB: Employee[] = [];
   private saleDB: Sale[] = [];
+  private ticketsDB: Ticket[] = [];
 
-  public insertNewClient(client: Client) {
+  public addNewClient(client: Client) {
     this.clientDB.push(client);
   }
 
-  public getClient(id: number): Client | undefined {
+  public getClient(id: number): Client {
     return this.clientDB[id];
+    ``;
   }
 
   public getAllClients(): Client[] {
     return this.clientDB;
   }
 
-  public insertNewTransport(transport: Transport) {
+  public addNewEmployee(employee: Employee) {
+    this.employeeDB.push(employee);
+  }
+
+  public getEmployee(id: number): Employee | undefined {
+    return this.employeeDB[id];
+  }
+
+  public getAllEmployees(): Employee[] {
+    return this.employeeDB;
+  }
+
+  public addNewTransport(transport: Transport) {
     this.transportDB.push(transport);
   }
 
@@ -27,7 +44,19 @@ export default class Database {
     return this.transportDB;
   }
 
-  public insertNewSale(sale: Sale) {
+  public addNewSale(sale: Sale) {
     this.saleDB.push(sale);
+  }
+
+  public getSale(index: number): Sale {
+    return this.saleDB[index]!;
+  }
+
+  public getSales(): Sale[] {
+    return this.saleDB;
+  }
+
+  public getTickets(): Ticket[] {
+    return this.ticketsDB;
   }
 }

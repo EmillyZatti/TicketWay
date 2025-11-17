@@ -1,8 +1,13 @@
 export interface ITicket {
-  id: number;
-  origin: string;
-  destination: string;
-  date: Date;
-  price: number;
+  getId(): number;
+  setId(id: number): void;
+  getOrigin(): string;
+  setOrigin(origin: string): void;
+  getDestination(): string;
+  setDestination(destination: string): void;
+  getDate(): Date;
+  setDate(date: Date): void;
+  getPrice(): number;
+  setPrice(price: number): void;
   getInfo(): string;
 }

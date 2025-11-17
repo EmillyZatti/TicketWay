@@ -10,6 +10,7 @@ export default class Ticket implements ITicket {
   price: number;
   client: Client;
   transport: Transport;
+  value!: number;
   getInfo(): string {
     return this.getInfo();
   }
@@ -38,5 +39,41 @@ export default class Ticket implements ITicket {
 
   public getPrice(): number {
     return this.price;
+  }
+
+  public setPrice(price: number): void {
+    this.price = price;
+  }
+
+  public getId(): number {
+    return this.id;
+  }
+
+  setId(id: number): void {
+    this.id = id;
+  }
+
+  getOrigin(): string {
+    return this.origin;
+  }
+
+  setOrigin(origin: string): void {
+    this.origin = origin;
+  }
+
+  getDestination(): string {
+    return this.destination;
+  }
+
+  setDestination(destination: string): void {
+    this.destination = destination;
+  }
+
+  getDate(): Date {
+    return this.date;
+  }
+
+  setDate(date: Date): void {
+    this.date = date;
   }
 }

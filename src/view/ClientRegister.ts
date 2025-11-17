@@ -1,5 +1,6 @@
 import * as PromptSync from "prompt-sync";
 import MainController from "../control/MainController";
+import Client from "../model/Client";
 
 export default class ClientRegister {
   private prompt;

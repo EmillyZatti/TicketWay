@@ -1,4 +1,7 @@
-export default class Transport {
+import type { Inames } from "../interfaces/INames";
+
+export default class Transport implements Inames {
+  name!: string;
   private seats!: number[];
 
   constructor(seats: number[]) {
@@ -16,5 +19,13 @@ export default class Transport {
 
   public getNumberOfSeats(): number {
     return this.seats.length;
+  }
+
+  getName(): string {
+    return this.name;
+  }
+
+  setName(name: string): void {
+    this.name = name;
   }
 }

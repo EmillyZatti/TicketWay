@@ -1,9 +1,13 @@
-export default class Person {
-  private name!: string;
+import type { Inames } from "../interfaces/INames";
+
+export default abstract class Person implements Inames {
+  private id: number;
+  name!: string;
   private cpf!: string;
   private age!: number;
 
-  constructor(name: string, cpf: string, age: number) {
+  constructor(id: number, name: string, cpf: string, age: number) {
+    this.id = id;
     this.name = name;
     this.cpf = cpf;
     this.age = age;
@@ -32,4 +36,6 @@ export default class Person {
   public setAge(age: number): void {
     this.age = age;
   }
+
+  public abstract toString(): String;
 }

@@ -18,7 +18,7 @@ export default class Sale {
     this.calculator = calculator;
   }
 
-  public addProductOnSale(tickets: Ticket, quantity: number): void {
+  public addTicketOnSale(tickets: Ticket, quantity: number): void {
     this.saleItens.push(tickets);
     this.ticketsQuantity.push(quantity);
     const price = this.calculator.calculate(
@@ -30,7 +30,7 @@ export default class Sale {
   }
 
   public removeSaleItens(index: number) {
-    console.log(`Item ${this.saleItens[index]?.getId()} removido`);
+    console.log(`Item ${index} removido`);
     this.saleItens.splice(index, 1);
     this.ticketsQuantity.splice(index, 1);
   }
@@ -82,6 +82,7 @@ export default class Sale {
   }
 
   public toString(): String {
+    let saleItensData = "";
     let saleData = `
     Vendedor: 
               ${this.employee.toString()}
@@ -91,18 +92,15 @@ export default class Sale {
     Valor Total Compra: ${this.salePrice}
     Produtos Vendidos:`;
 
-    let saleTickets = "\n";
     for (let i = 0; i < this.saleItens.length; i++) {
-      saleTickets += this.saleItens[i]?.getId() + "\n";
-      saleTickets += "Quantidade: " + this.ticketsQuantity[i];
-      +"\n";
+      saleItensData +=
+        "Origem: " +
+        this.saleItens[i].getOrigin() +
+        " Destino: " +
+        this.saleItens[i].getDestination() +
+        "\n";
     }
 
-    return saleData + saleTickets;
+    return saleData + saleItensData;
   }
 }
-
-/*constructor(tickets: Ticket[], employee: Employee) {
-    this.tickets = tickets;
-    this.employee = employee;
-  }*/

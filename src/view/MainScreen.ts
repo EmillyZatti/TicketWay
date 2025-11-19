@@ -1,4 +1,4 @@
-import * as PromptSync from "prompt-sync";
+import PromptSync from "prompt-sync";
 import MainController from "../control/MainController";
 import ClientRegister from "./ClientRegister";
 import EmployeeRegister from "./EmployeeRegister";

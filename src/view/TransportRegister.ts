@@ -1,4 +1,4 @@
-import * as PromptSync from "prompt-sync";
+import PromptSync from "prompt-sync";
 import MainController from "../control/MainController";
 
 export default class TransportRegister {

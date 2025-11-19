@@ -1,3 +1,4 @@
+import type City from "../model/City";
 import type Client from "../model/Client";
 import type Employee from "../model/Employee";
 import type Ticket from "../model/Ticket";
@@ -10,14 +11,18 @@ export default class Database {
   private employeeDB: Employee[] = [];
   private saleDB: Sale[] = [];
   private ticketsDB: Ticket[] = [];
+  private cityDB: City[] = [];
 
   public addNewClient(client: Client) {
     this.clientDB.push(client);
   }
 
   public getClient(id: number): Client {
+    if (!this.clientDB[id]) {
+      throw new Error(`Cliente Inexistente`);
+    }
+
     return this.clientDB[id];
-    ``;
   }
 
   public getAllClients(): Client[] {
@@ -28,7 +33,7 @@ export default class Database {
     this.employeeDB.push(employee);
   }
 
-  public getEmployee(id: number): Employee | undefined {
+  public getEmployee(id: number): Employee {
     return this.employeeDB[id];
   }
 
@@ -58,5 +63,17 @@ export default class Database {
 
   public getTickets(): Ticket[] {
     return this.ticketsDB;
+  }
+
+  public getCity(index: number): City {
+    return this.cityDB[index];
+  }
+
+  public addNewCity(city: City) {
+    this.cityDB.push(city);
+  }
+
+  public getAllCities(): City[] {
+    return this.cityDB;
   }
 }

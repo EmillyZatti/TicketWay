@@ -1,11 +1,11 @@
 import type { ITicket } from "../interfaces/ITicket";
-import type Client from "./Client";
-import type Transport from "./Transport";
+import Client from "./Client";
+import Transport from "./Transport";
+import City from "./City";
 
 export default class Ticket implements ITicket {
-  id!: number;
-  origin!: string;
-  destination!: string;
+  origin!: City;
+  destination!: City;
   date!: Date;
   price: number;
   client: Client;
@@ -45,27 +45,19 @@ export default class Ticket implements ITicket {
     this.price = price;
   }
 
-  public getId(): number {
-    return this.id;
-  }
-
-  setId(id: number): void {
-    this.id = id;
-  }
-
-  getOrigin(): string {
+  getOrigin(): City {
     return this.origin;
   }
 
-  setOrigin(origin: string): void {
+  setOrigin(origin: City): void {
     this.origin = origin;
   }
 
-  getDestination(): string {
+  getDestination(): City {
     return this.destination;
   }
 
-  setDestination(destination: string): void {
+  setDestination(destination: City): void {
     this.destination = destination;
   }
 

@@ -1,10 +1,10 @@
+import City from "../model/City";
+
 export interface ITicket {
-  getId(): number;
-  setId(id: number): void;
-  getOrigin(): string;
-  setOrigin(origin: string): void;
-  getDestination(): string;
-  setDestination(destination: string): void;
+  getOrigin(): City;
+  setOrigin(origin: City): void;
+  getDestination(): City;
+  setDestination(destination: City): void;
   getDate(): Date;
   setDate(date: Date): void;
   getPrice(): number;

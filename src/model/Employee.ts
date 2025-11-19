@@ -1,8 +1,8 @@
 import Person from "./Person";
 
 export default class Employee extends Person {
-  constructor(id: number, name: string, cpf: string, age: number) {
-    super(id, name, cpf, age);
+  constructor(name: string, cpf: string, age: number) {
+    super(name, cpf, age);
   }
 
   public toString(): String {

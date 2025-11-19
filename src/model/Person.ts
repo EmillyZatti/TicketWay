@@ -1,13 +1,11 @@
 import type { Inames } from "../interfaces/INames";
 
 export default abstract class Person implements Inames {
-  private id: number;
   name!: string;
   private cpf!: string;
   private age!: number;
 
-  constructor(id: number, name: string, cpf: string, age: number) {
-    this.id = id;
+  constructor(name: string, cpf: string, age: number) {
     this.name = name;
     this.cpf = cpf;
     this.age = age;

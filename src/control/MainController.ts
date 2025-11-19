@@ -1,5 +1,6 @@
 import Database from "../db/Database";
 import Bus from "../model/Bus";
+import City from "../model/City";
 import Client from "../model/Client";
 import Employee from "../model/Employee";
 import Plane from "../model/Plane";
@@ -17,8 +18,8 @@ export default class MainController {
     new MainScreen(this);
   }
 
-  public getNewClient(id: number, name: string, cpf: string, age: number) {
-    return new Client(id, name, cpf, age);
+  public getNewClient(name: string, cpf: string, age: number) {
+    return new Client(name, cpf, age);
   }
 
   public getNewBus(seats: number[]) {
@@ -33,11 +34,15 @@ export default class MainController {
     return new Sale(this.salePriceCalculator);
   }
 
-  public getNewEmployee(id: number, name: string, cpf: string, age: number) {
-    return new Client(id, name, cpf, age);
+  public getNewEmployee(name: string, cpf: string, age: number) {
+    return new Employee(name, cpf, age);
   }
 
   public getNewTicket(price: number, client: Client, transport: Transport) {
     return new Ticket(price, client, transport);
+  }
+
+  public getNewCity(name: string) {
+    return new City(name);
   }
 }

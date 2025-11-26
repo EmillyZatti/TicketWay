@@ -40,6 +40,8 @@ export default class MainScreen {
           this.employeeRegister.addEmployee();
         case 3:
           this.transportRegister.addTransport();
+        case 4:
+          this.saleRegister.addSale();
       }
     }
   }

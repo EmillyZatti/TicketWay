@@ -5,7 +5,7 @@ import Client from "../model/Client";
 import Employee from "../model/Employee";
 import Plane from "../model/Plane";
 import Ticket from "../model/Ticket";
-import type Transport from "../model/Transport";
+import Transport from "../model/Transport";
 import Sale from "../service/Sale";
 import SalePriceCalculator from "../service/SalePriceCalculator";
 import MainScreen from "../view/MainScreen";

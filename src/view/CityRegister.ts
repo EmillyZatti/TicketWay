@@ -13,9 +13,12 @@ export default class CityRegister {
   public addCity(): void {
     let cities = this.control.db.getAllCities();
     let aux = "S";
-    console.log("Cidades Cadastradas");
-    for (let i = 0; i < cities.length; i++) {
-      console.log(`ID: ${i} Nome: ${cities[i].getName()}`);
+
+    if (cities.length > 0) {
+      console.log("Cidades Cadastradas");
+      for (let i = 0; i < cities.length; i++) {
+        console.log(`ID: ${i} Nome: ${cities[i].getName()}`);
+      }
     }
 
     do {

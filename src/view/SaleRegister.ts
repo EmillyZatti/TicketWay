@@ -6,14 +6,12 @@ import Transport from "../model/Transport";
 import Ticket from "../model/Ticket";
 import Employee from "../model/Employee";
 import { SaleStatus } from "../enuns/SaleStatus";
-import ClientRegister from "./ClientRegister";
-import { Cities } from "../enuns/Cities";
 import City from "../model/City";
 
 export default class SaleRegister {
   private prompt = PromptSync();
   private control: MainController;
-  private tickets!: Ticket[];
+  private tickets: Ticket[] = [];
 
   public constructor(control: MainController) {
     this.control = control;
@@ -40,7 +38,7 @@ export default class SaleRegister {
     let clients: Client[] = this.control.db.getAllClients();
     console.log("\n----------LISTA DE CLIENTES---------------");
     for (let i = 0; i < clients.length; i++) {
-      console.log(`ID: ${i} Nome: \n`);
+      console.log(`ID: ${i} Nome: ${clients[i].getName()}\n`);
     }
 
     let clientOption: number;
@@ -60,34 +58,24 @@ export default class SaleRegister {
     let employees: Employee[] = this.control.db.getAllEmployees();
     console.log("\n-------------LISTA DE FUNCIONARIOS------------------");
     for (let i = 0; i < employees.length; i++) {
-      console.log(`ID: ${i} Nome: ${employees[i]?.getName()}`);
+      console.log(`ID: ${i} Nome: ${employees[i].getName()}`);
     }
 
     let employeeOption: number;
 
-    try {
-      employeeOption = parseInt(
-        this.prompt(`\nDigite o ID do Funcionário que está efetuando a venda:`)
-      );
+    employeeOption = parseInt(
+      this.prompt(`\nDigite o ID do Funcionário que está efetuando a venda:`)
+    );
 
-      if (typeof employees[employeeOption] == undefined) {
-        throw new Error("valor inválido");
-      } else {
-        return employees[employeeOption];
-      }
-    } catch (Error) {
-      console.log("valor Inválido");
-    } finally {
-      this.addEmployee();
-    }
+    return employees[employeeOption];
   }
 
   public addTicketOnSale(cli: Client) {
     let client = cli;
     let cities = this.control.db.getAllCities();
     let transports = this.control.db.getAllTransport();
-    let origin;
-    let destiny;
+    let origin!: City;
+    let destiny!: City;
     let originID;
     let destinyID;
     let transport;
@@ -122,8 +110,8 @@ export default class SaleRegister {
     price = parseFloat(this.prompt("Digite o valor do Ticket: "));
 
     let ticket = this.control.getNewTicket(price, client, transport);
-    ticket.setOrigin(origin!);
-    ticket.setDestination(destiny!);
+    ticket.setOrigin(origin);
+    ticket.setDestination(destiny);
     this.tickets.push(ticket);
   }
 }

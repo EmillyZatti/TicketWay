@@ -1,5 +1,5 @@
 export default class ClientValidator {
-  public static validateName(name: string): void {
+  public validateName(name: string): void {
     if (!name || name.trim().length === 0) {
       throw new Error("Nome inválido: não pode ser vazio.");
     }
@@ -11,8 +11,9 @@ export default class ClientValidator {
     }
   }
 
-  public static validateCPF(cpf: string): void {
+  public validateCPF(cpf: string): void {
     const onlyNumbersRegex = /^\d{11}$/;
+    console.log(cpf);
     if (!cpf) {
       throw new Error("CPF não pode ser vazio.");
     }

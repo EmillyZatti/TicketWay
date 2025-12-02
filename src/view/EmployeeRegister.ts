@@ -12,9 +12,11 @@ export default class EmployeeRegister {
   public addEmployee(): void {
     let employees = this.control.db.getAllEmployees();
     let aux = "S";
-    console.log("Funcionarios cadastrados");
-    for (let i = 0; i < employees.length; i++) {
-      console.log(`ID: ${i} Nome: ${employees[i].getName()}`);
+    if (employees.length > 0){
+      console.log("Funcionarios cadastrados");
+      for (let i = 0; i < employees.length; i++) {
+        console.log(`ID: ${i} Nome: ${employees[i].getName()}`);
+      }
     }
 
     do {

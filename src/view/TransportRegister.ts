@@ -6,7 +6,7 @@ export default class TransportRegister {
   private control: MainController;
 
   constructor(control: MainController) {
-    this.control = new MainController();
+    this.control = control;
   }
 
   public addTransport(): void {
@@ -21,9 +21,19 @@ export default class TransportRegister {
     switch (this.prompt("Escolha o tipo de transporte: ")) {
       case "1":
         let bus = this.control.getNewBus(seats);
+        let nameBus = this.prompt(
+          "Digite um nome identificador do transporte:"
+        );
+        bus.setName(nameBus);
+        this.control.db.addNewTransport(bus);
         break;
       case "2":
         let plane = this.control.getNewPlane(seats);
+        let namePlane = this.prompt(
+          "Digite um nome identificador do transporte: "
+        );
+        plane.setName(namePlane);
+        this.control.db.addNewTransport(plane);
         break;
       default:
         console.log("Tipo inválido!");

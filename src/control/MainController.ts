@@ -6,6 +6,7 @@ import Employee from "../model/Employee";
 import Plane from "../model/Plane";
 import Ticket from "../model/Ticket";
 import Transport from "../model/Transport";
+import ClientValidator from "../service/ClientValidator";
 import Sale from "../service/Sale";
 import SalePriceCalculator from "../service/SalePriceCalculator";
 import MainScreen from "../view/MainScreen";
@@ -13,6 +14,7 @@ import MainScreen from "../view/MainScreen";
 export default class MainController {
   public db: Database = new Database();
   public salePriceCalculator = new SalePriceCalculator();
+  public clientValidator: ClientValidator = new ClientValidator();
 
   constructor() {
     new MainScreen(this);
